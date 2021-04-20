@@ -1,0 +1,26 @@
+<div>
+  <div class="leaflet-control-container">
+    <div class="leaflet-top leaflet-left">
+      <div class="leaflet-searchbox-control-wrapper leaflet-control">
+        <div class="leaflet-searchbox-control">
+          <div class="leaflet-searchbox-control-container  leaflet-searchbox-control-shadow">
+            <input class="leaflet-searchbox-control-input" id="addr" type="text" style="outline: none;">
+            <div class="leaflet-searchbox-control-search-container">
+              <button aria-label="search" class="leaflet-searchbox-control-search-button"
+              ></button>
+              <span aria-hidden="true" style="display:none;">search</span>
+            </div>
+            <div class="leaflet-searchbox-control-search-result" style="display: block;">
+              <ul *ngIf="items && items.length && !hideResult">
+                <li *ngFor="let item of items" (click)="zoomToSearchAddress(item)">
+                  <h4 *ngIf="item?._source?.address"> {{ item._source.address}} </h4>
+                  <hr style="border-width: 2px;"/>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
